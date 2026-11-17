@@ -89,7 +89,7 @@ const shuffle = a => { for (let k = a.length - 1; k > 0; k--) { const j = Math.r
 const isImg = v => /[\/.]/.test(v) && !/^\p{Extended_Pictographic}/u.test(v);
 
 async function loadQuestions() {
-  const data = await (await fetch('questions.json', { cache: 'no-cache' })).json();
+  const data = await (await fetch('data/questions.json', { cache: 'no-cache' })).json();
   Q = data.questions.filter(q => q.word && q.image && q.others && new Set([q.image, ...q.others]).size === 4);
   if (Q.length !== data.questions.length) console.warn('Some questions were skipped: each needs 4 distinct pictures.');
   $('#track').setAttribute('aria-valuemax', Q.length);
