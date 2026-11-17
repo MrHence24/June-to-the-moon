@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0830">
+<title>June to the Moon</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- shared gradients for the rocket artwork -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <linearGradient id="bd" x1="0" x2="1"><stop offset="0" stop-color="#a874ff"/><stop offset="1" stop-color="#5326b8"/></linearGradient>
+  <linearGradient id="sv" x1="0" x2="1" y1="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#c9cde6"/><stop offset="1" stop-color="#8f94b8"/></linearGradient>
+  <linearGradient id="fl" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#ffe86b"/><stop offset=".5" stop-color="#ff9a3c"/><stop offset="1" stop-color="#ff3c8e" stop-opacity="0"/></linearGradient>
+</defs></svg>
+
+<button id="snd" class="icon-btn" aria-pressed="false" aria-label="Sound on/off (M)">🔊</button>
+
+<!-- TITLE -->
+<main id="title" class="screen">
+  <canvas class="stars"></canvas>
+  <div class="earth" id="t-earth"></div><div class="moon" id="t-moon"></div>
+  <h1>June <small>to the</small> Moon</h1>
+  <div class="hero">
+    <img src="assets/characters/june-full.png" alt="June, a young astronaut in a purple and pink space suit, holding her helmet">
+    <div class="rocket" aria-hidden="true"><div class="porthole"></div></div>
+  </div>
+  <button id="launch" class="btn">LAUNCH 🚀</button>
+</main>
+
+<!-- GAME / COCKPIT -->
+<main id="game" class="screen" hidden>
+  <header id="hud">
+    <div id="plabel">Question 1 of 44</div>
+    <div id="track" role="progressbar" aria-valuemin="0" aria-valuemax="44" aria-valuenow="0">
+      <i class="cap-e"></i><div id="fill"></div><div id="mark"></div><i class="cap-m"></i>
+    </div>
+  </header>
+  <section id="win" aria-label="Rocket window">
+    <canvas class="stars"></canvas>
+    <div class="earth" id="earth"></div><div class="moon" id="moon"></div>
+    <div class="rocket" id="ship" aria-hidden="true"><div class="porthole"></div></div>
+    <img id="june-land" src="assets/characters/june-full.png" alt="June celebrating on the Moon">
+    <div id="comms"><div id="face"></div><div id="say"></div></div>
+  </section>
+  <section id="panel">
+    <button id="word" aria-label="Word. Tap to hear it"></button>
+    <div id="choices" role="group" aria-label="Pick the picture"></div>
+  </section>
+  <div id="msg" role="status" aria-live="polite"></div>
+  <section id="done" hidden>
+    <h2>Mission Complete!</h2>
+    <p>June landed on the Moon! 🌙<br>44 words, 44 steps. Amazing flying!</p>
+    <button id="again" class="btn">Fly again</button>
+  </section>
+</main>
+<noscript>Please turn on JavaScript to fly to the Moon.</noscript>
+<script src="game.js"></script>
+</body>
+</html>
